@@ -1,0 +1,1 @@
+docker run --name rmm-postgres -e POSTGRES_USER=rmmadmin -e POSTGRES_PASSWORD=rmmpassword -e POSTGRES_DB=rmm -p 5432:5432 -d postgres
