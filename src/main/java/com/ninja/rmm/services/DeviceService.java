@@ -31,13 +31,17 @@ public class DeviceService {
         return deviceRepository.findByIdAndCustomerId(deviceId, customerId).map(DeviceService::getDeviceFromModel);
     }
 
-    public Optional<Device> updateDevice(Device device) {
+    public Device updateDevice(Device device) throws DeviceException{
+        var sysType = systemTypeRepository.findById(device.getType().getId())
+                .orElseThrow(()-> new DeviceException("system type does not exist", HttpStatus.BAD_REQUEST));
         return deviceRepository.findById(device.getId())
                 .map(deviceModel -> {
                     BeanUtils.copyProperties(device, deviceModel);
+                    deviceModel.setType(sysType);
                     return deviceModel;
                 })
-                .map(deviceRepository::save).map(DeviceService::getDeviceFromModel);
+                .map(deviceRepository::save)
+                .map(DeviceService::getDeviceFromModel).orElseThrow(()->new DeviceException("device not updated",HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     public Device createDevice(Device device) throws DeviceException {

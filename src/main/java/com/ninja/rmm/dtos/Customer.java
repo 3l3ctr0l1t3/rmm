@@ -13,7 +13,7 @@ public class Customer {
     private String alias;
     private Collection<Subscription> subscriptions = new ArrayList<>();
     private Collection<Device> devices = new ArrayList<>();
-    private String user;
+    private String email;
     @JsonIgnore
     private String password;
 
