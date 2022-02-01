@@ -2,6 +2,8 @@ package com.ninja.rmm.services;
 
 import com.ninja.rmm.dtos.Bill;
 import com.ninja.rmm.dtos.BillDetail;
+import com.ninja.rmm.models.Device;
+import com.ninja.rmm.models.Subscription;
 import com.ninja.rmm.models.SystemType;
 import com.ninja.rmm.exceptions.BillingException;
 import com.ninja.rmm.models.Cost;
@@ -28,8 +30,8 @@ public class BillingService {
         var finalBill = new Bill();
       var customer = customerRepository.findById(customerId).orElseThrow(()->new BillingException("customer not found", HttpStatus.BAD_REQUEST));
       var devices = customer.getDevices();
-      var services = customer.getSubscriptions().stream().map(subscription -> subscription.getService());
-      var devicesBySystemType = devices.stream().collect(Collectors.groupingBy(device -> device.getType(), Collectors.counting()));
+      var services = customer.getSubscriptions().stream().map(Subscription::getService);
+      var devicesBySystemType = devices.stream().collect(Collectors.groupingBy(Device::getType, Collectors.counting()));
         services.forEach(service -> finalBill.addDetail(service.getName(), calculateServiceFee(devicesBySystemType ,service)));
         finalBill.addDetail("devices", new BigDecimal(devices.size()).multiply(new BigDecimal(deviceCost)));
         finalBill.setTotal(finalBill.getDetails().stream()

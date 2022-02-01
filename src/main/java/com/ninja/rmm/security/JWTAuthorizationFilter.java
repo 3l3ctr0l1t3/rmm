@@ -1,6 +1,7 @@
 package com.ninja.rmm.security;
 
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,10 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Base64;
 
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
+
+	@Value("${security.secret}")
+	private String secret;
 
 	public JWTAuthorizationFilter(AuthenticationManager authManager) {
 		super(authManager);
@@ -37,10 +40,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 	private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
 		String token = request.getHeader("Authorization");
 		if (token != null) {
-			// Se procesa el token y se recupera el usuario.
-			String user = null;
+			String user;
 				user = Jwts.parser()
-						.setSigningKey("secret")
+						.setSigningKey(secret)
 						.parseClaimsJws(token.replace("Bearer", ""))
 						.getBody()
 						.getSubject();

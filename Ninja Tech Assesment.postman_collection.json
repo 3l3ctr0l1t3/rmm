@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "ce81528f-548c-4c93-b063-dabd261d0e5b",
+		"name": "Ninja Tech Assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetDevices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSubscriptions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/subscriptions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subscriptions",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDevice",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/devices/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"devices",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddDevice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"systemName\": \"Customer 1 Device 3ew9\",\r\n    \"systemType\":{\"id\":3}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/devices/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"devices",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddSubscription",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\"id\":4} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/subscriptions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subscriptions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateDevice",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10,\r\n    \"systemName\": \"Customer 1 Device 10\",\r\n    \"content\": null,\r\n    \"customer\": null,\r\n    \"subscriptions\": null,\r\n    \"created\": \"1988-01-23T23:23:31.371035\",\r\n    \"modified\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSubscriptions",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/subscriptions/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"subscriptions",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDevice",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/devices/22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"devices",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Billing",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODg4NDMsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg4OTAzfQ.iGB1H9T25pUOpLhqKaFJ19ZlBFeXqX1gINOFDxcnQqRM2pBMVOrbkRFxSPYVsl57VRxHhKwn8EXPcxVEgCigYw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/billing/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"billing",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogIn",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"email\": \"customer@company.com\", \"password\": \"secure_password\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NDMxODcxNzAsImlzcyI6Im5pbmphLXJtbSIsInN1YiI6ImN1c3RvbWVyQGNvbXBhbnkuY29tIiwiZXhwIjoxNjQzMTg3MjMwfQ.lmjUpg7ijxKoP2KpMxayXAC-OjIW0taQmgVvMnH2UiYZxyPdHjHf2HQ-8W4FoFfyZkdifvYvaHpkLh_LN3o_yw"
+		}
+	]
+}
