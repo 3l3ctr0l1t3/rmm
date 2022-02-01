@@ -15,11 +15,11 @@ public class Service {
     private Long id;
     private String name;
     @Column(nullable = false)
-    private BigDecimal generalCost;
+    private BigDecimal defaultPrice;
     @OneToMany(mappedBy = "service", fetch = FetchType.LAZY)
     private Collection<Subscription> subscriptions;
     @OneToMany(mappedBy = "service", fetch = FetchType.EAGER)
-    private Collection<Cost> costs;
+    private Collection<Price> prices;
 }
 
 

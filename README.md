@@ -47,8 +47,4 @@ The price for the service of a specific device is calculated as follows:
 
 The service can have different prices, the default one is represented in the property `price` of the Service Object, but that same service object also contains a list of prices per specific system type, like so, if the service contain a specific price for the system type of the device, that price will be applied otherwise, the default price will be the one used for that service in that device.
 
-However, if a certain service does not apply for a system type(let's say antivirus for linux), a specific cost should be created in the service for that system type with the value 0.
-
-
-
-
+However, if a certain service does not apply for a system type(let's say antivirus for linux), a specific price should be created in the service for that system type with the value 0.

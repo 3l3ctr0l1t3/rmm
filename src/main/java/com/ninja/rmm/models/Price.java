@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Data
-@Table(name = "cost")
-public class Cost {
+@Table(name = "price")
+public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,6 +22,3 @@ public class Cost {
     private Service service;
 
 }
-
-
-

@@ -6,11 +6,10 @@ import com.ninja.rmm.models.Device;
 import com.ninja.rmm.models.Subscription;
 import com.ninja.rmm.models.SystemType;
 import com.ninja.rmm.exceptions.BillingException;
-import com.ninja.rmm.models.Cost;
+import com.ninja.rmm.models.Price;
 import com.ninja.rmm.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.util.Pair;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -43,11 +42,11 @@ public class BillingService {
     private BigDecimal calculateServiceFee(Map<SystemType, Long> devices, com.ninja.rmm.models.Service service){
         BigDecimal serviceFee = new BigDecimal(0);
         for(SystemType sysType :devices.keySet()){
-            var appliedCost = service.getCosts().stream()
-                    .filter(cost -> cost.getType().equals(sysType))
-                    .map(Cost::getPrice)
+            var appliedCost = service.getPrices().stream()
+                    .filter(price -> price.getType().equals(sysType))
+                    .map(Price::getPrice)
                     .findFirst()
-                    .orElse(service.getGeneralCost());
+                    .orElse(service.getDefaultPrice());
             serviceFee =serviceFee.add(appliedCost.multiply(BigDecimal.valueOf(devices.get(sysType))));
         }
         return serviceFee;

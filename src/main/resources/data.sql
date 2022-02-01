@@ -20,36 +20,35 @@ values (6, 'Customer 2 Device 1', 3, 2);
 insert into device (id, system_name, system_type_id, customer_id)
 values (7, 'Customer 2 Device 2', 1, 2);
 
-insert into service (id, price, system_type_id, name)
-values (1, 100, 1, 'Antivirus');
-insert into service (id, price, system_type_id,  name)
-values (2, 33, 1,'Cloudberry');
-insert into service (id, price, system_type_id, name)
-values (3, 21, 1, 'TeamViewer');
-insert into service (id, price, system_type_id, name)
-values (4, 200, 2, 'Antivirus');
-insert into service (id, price, system_type_id,  name)
-values (5, 133, 2,'Cloudberry');
-insert into service (id, price, system_type_id, name)
-values (6, 121, 2, 'TeamViewer');
-
-insert into cost (id,price,service_id,system_type_id)
-values (1,20.00,2,1);
-insert into cost (id,price,service_id,system_type_id)
-values (2,21.00,2,3);
-insert into cost (id,price,service_id,system_type_id)
-values (3,0.00,1,1);
+insert into service (id, default_price, name)
+values (1, 100, 'Antivirus');
+insert into service (id, default_price,  name)
+values (2, 33, 'Cloudberry');
+insert into service (id, default_price, name)
+values (3, 21, 'TeamViewer');
+insert into service (id, default_price, name)
+values (4, 200, 'Antivirus');
+insert into service (id, default_price,  name)
+values (5, 133,'Cloudberry');
+insert into service (id, default_price, name)
+values (6, 121, 'TeamViewer');
 
 insert into subscription (id,customer_id,service_id)
-values (18,1,2);
+values (1,1,2);
 insert into subscription (id,customer_id,service_id)
-values (20,2,2);
+values (2,2,2);
 insert into subscription (id,customer_id,service_id)
-values (23,2,1);
+values (3,2,1);
 insert into subscription (id,customer_id,service_id)
-values (25,1,4);
+values (4,1,4);
 insert into subscription (id,customer_id,service_id)
-values (29,1,3);
+values (5,1,3);
 insert into subscription (id,customer_id,service_id)
-values (33,1,1);
+values (6,1,1);
 
+insert into price (id,price,service_id,system_type_id)
+values (1,20,2,1);
+insert into price (id,price,service_id,system_type_id)
+values (2,21,2,3);
+insert into price (id,price,service_id,system_type_id)
+values (3,0,1,1);

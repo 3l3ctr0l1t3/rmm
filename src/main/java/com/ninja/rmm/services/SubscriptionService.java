@@ -35,7 +35,7 @@ public class SubscriptionService {
 
         subscription.setCustomer(customer);
         subscription.setService(service);
-        return subscriptionToDto(subscriptionRepository.save(subscription));
+            return subscriptionToDto(subscriptionRepository.save(subscription));
 
     }
 

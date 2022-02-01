@@ -45,9 +45,9 @@ class BillingServiceTest {
     @Mock
     Service service3;
     @Mock
-    Cost cost;
+    Price price;
     @Mock
-    Cost cost2;
+    Price price2;
     @Mock
     SystemType systemType;
     @Mock
@@ -61,20 +61,20 @@ class BillingServiceTest {
 
     @BeforeEach
     void setUp() {
-        when(cost.getType()).thenReturn(systemType);
-        when(cost.getPrice()).thenReturn( new BigDecimal("5"));
+        when(price.getType()).thenReturn(systemType);
+        when(price.getPrice()).thenReturn( new BigDecimal("5"));
 
-        when(cost2.getType()).thenReturn(systemType2);
-        when(cost2.getPrice()).thenReturn( new BigDecimal("10"));
+        when(price2.getType()).thenReturn(systemType2);
+        when(price2.getPrice()).thenReturn( new BigDecimal("10"));
 
-        when(service3.getCosts()).thenReturn(Arrays.asList(cost, cost2));
-        when(service3.getGeneralCost()).thenReturn( new BigDecimal("3"));
+        when(service3.getPrices()).thenReturn(Arrays.asList(price, price2));
+        when(service3.getDefaultPrice()).thenReturn( new BigDecimal("3"));
 
-        when(service2.getCosts()).thenReturn(Arrays.asList(cost2));
-        when(service2.getGeneralCost()).thenReturn( new BigDecimal("2"));
+        when(service2.getPrices()).thenReturn(Arrays.asList(price2));
+        when(service2.getDefaultPrice()).thenReturn( new BigDecimal("2"));
 
-        when(service.getCosts()).thenReturn(Arrays.asList());
-        when(service.getGeneralCost()).thenReturn( new BigDecimal("1"));
+        when(service.getPrices()).thenReturn(Arrays.asList());
+        when(service.getDefaultPrice()).thenReturn( new BigDecimal("1"));
 
         when(subscription.getService()).thenReturn(service);
         when(subscription2.getService()).thenReturn(service2);
