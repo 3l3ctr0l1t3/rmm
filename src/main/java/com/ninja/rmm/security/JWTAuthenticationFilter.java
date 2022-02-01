@@ -26,9 +26,7 @@ import java.util.Date;
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	private final AuthenticationManager authenticationManager;
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	@Value("${security.secret}")
-	private String secret;
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	public JWTAuthenticationFilter(AuthenticationManager authenticationManager, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.authenticationManager = authenticationManager;
@@ -54,7 +52,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String token = Jwts.builder().setIssuedAt(new Date()).setIssuer("ninja-rmm")
 				.setSubject(((User)auth.getPrincipal()).getUsername())
 				.setExpiration(new Date(System.currentTimeMillis() + 60000))
-				.signWith(SignatureAlgorithm.HS512, secret).compact();
+				.signWith(SignatureAlgorithm.HS512, "secret").compact();
 		response.addHeader("Authorization", "Bearer " + token);
 	}
 }

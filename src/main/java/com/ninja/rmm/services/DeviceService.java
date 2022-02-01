@@ -63,7 +63,7 @@ public class DeviceService {
     public static Device getDeviceFromModel(com.ninja.rmm.models.Device deviceModel) {
         var device = new Device();
         BeanUtils.copyProperties(deviceModel, device);
-        var systemType = SystemType.builder().build();
+        var systemType = new SystemType();
         BeanUtils.copyProperties(deviceModel.getType(), systemType);
         device.setType(systemType);
         return device;

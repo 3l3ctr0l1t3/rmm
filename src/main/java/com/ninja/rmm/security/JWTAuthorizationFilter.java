@@ -17,9 +17,6 @@ import java.util.ArrayList;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
-	@Value("${security.secret}")
-	private String secret;
-
 	public JWTAuthorizationFilter(AuthenticationManager authManager) {
 		super(authManager);
 	}
@@ -42,7 +39,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		if (token != null) {
 			String user;
 				user = Jwts.parser()
-						.setSigningKey(secret)
+						.setSigningKey("secret")
 						.parseClaimsJws(token.replace("Bearer", ""))
 						.getBody()
 						.getSubject();
